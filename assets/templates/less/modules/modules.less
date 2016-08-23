@@ -1,0 +1,141 @@
+/*Modules*/
+
+@import "form-popup.less";
+
+
+
+.service-menu {
+  margin-top: 540px;
+  margin-bottom: 50px;
+
+  > ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+
+    > li {
+      width: 195px;
+      height: 46px;
+      border: 1px solid white;
+      margin-right: 3px;
+      background: rgba(255, 255, 255, 0.21);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #000;
+      font-family: @latoRegular;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: pointer;
+
+      &.active {
+        background: rgba(255, 255, 255, 0.8);
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0);
+
+
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    margin-top: 270px;
+  }
+
+  @media screen and (max-width: 670px) {
+    margin-top: 200px;
+    margin-bottom: 25px;
+    > ul {
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      > li {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    display: none;
+  }
+}
+
+.not-main-page {
+  .service-menu {
+    margin: 0;
+  }
+}
+
+.callout-button {
+  position: fixed;
+  left: -81px;
+  top: 305px;
+  transform: rotate(90deg);
+  font-size: 14px;
+  color: white;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  width: 195px;
+  height: 35px;
+  cursor: pointer;
+  -webkit-background-size: cover;
+  background-size: cover;
+  font-family: @latoRegular;
+  font-weight: bold;
+  background: url("../../img/bg-callout-button.png") no-repeat;
+
+  &:hover {
+    background: url("../../img/bg-callout-button.png") no-repeat;
+    color: white;
+    border: 2px solid white;
+  }
+
+  @media screen and (max-width: 670px) {
+    bottom: 250px;
+    top: auto;
+  }
+  
+}
+
+.breadcrumbs {
+  a {
+    font-size: 12px;
+    color: #3753aa;
+  }
+
+  span:nth-child(2) {
+    font-size: 12px;
+    color: #3753aa;
+  }
+
+  span:nth-child(3) {
+    font-size: 12px;
+    color: #a8111c;
+  }
+}
+
+.goup-container {
+  background: url("../../img/button-goup.png") no-repeat !important;
+  width: 98px !important;
+  height: 100px !important;
+
+  .goup-arrow {
+    display: none;
+  }
+}
+
+
+/*Modules*/

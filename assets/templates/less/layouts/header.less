@@ -1,0 +1,64 @@
+.l-header-wrap {
+  background: url("../../img/bg-header-wrap.png") no-repeat;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+
+  @media screen and (max-width: 1200px) {
+    background: none;
+  }
+}
+
+.l-header {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: wrap;
+  padding-top: 17px;
+  padding-bottom: 18px;
+
+  @media screen and (max-width: 670px) {
+    justify-content: space-around;
+  }
+
+}
+
+.header-logo {
+  position: relative;
+
+  img {
+    max-width: 100%;
+  }
+
+  .header-logo-title {
+    position: absolute;
+    right: 20px;
+    bottom: -5px;
+    font-family: @latoLight;
+    text-transform: uppercase;
+    font-size: 16px;
+
+    @media screen and (max-width: 400px) {
+      display: none;
+    }
+  }
+}
+
+.header-contacts {
+  .header-contacts-city {
+    font-family: @latoRegular;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 3px;
+    padding-left: 2px;
+  }
+
+  .header-contacts-phone {
+    font-family: @latoBold;
+    font-size: 30px;
+    color: #324b9c;
+
+    span {
+      color: #9e101a;
+    }
+  }
+}
