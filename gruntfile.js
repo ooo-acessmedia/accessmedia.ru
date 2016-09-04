@@ -1,11 +1,10 @@
-'use strict';
 module.exports = function (grunt) {
     require('time-grunt')(grunt);
     require('load-grunt-tasks')(grunt);
 
     var deployServer = 'ftp.texsnab63.ru',
         deployFolder = 'accessmedia.ru',
-        liveReloadFolder = 'http://accessmedia.ru/';
+        liveReloadFolder = '0.0.0.0';
 
 
     grunt.initConfig({
@@ -43,11 +42,15 @@ module.exports = function (grunt) {
                 options: {
                     paths: ["assets/templates"],
                     relativeUrls: true,
-                    modifyVars: {
-                    }
+                    optimization: 2,
+                    sourceMap: true,
+                    sourceMapFilename: "assets/templates/css/main.css.map",
+                    sourceMapURL: "./main.css.map",
+                    sourceMapFileInline: true,
+                    outputSourceFiles: true
                 },
                 files: {
-                    "assets/templates/css/main.css" : "assets/templates/less/main.less"
+                    "assets/templates/css/main.css": "assets/templates/less/main.less"
                 }
             },
 
@@ -56,14 +59,11 @@ module.exports = function (grunt) {
                     paths: ["assets/templates"],
                     relativeUrls: true,
                     plugins: [
-                        (new (require('less-plugin-clean-css'))({
-                        }))
-                    ],
-                    modifyVars: {
-                    }
+                        (new (require('less-plugin-clean-css'))({}))
+                    ]
                 },
                 files: {
-                    "assets/templates/css/main.css" : "assets/templates/less/main.less"
+                    "assets/templates/css/main.css": "assets/templates/less/main.less"
                 }
             }
         },
@@ -108,13 +108,13 @@ module.exports = function (grunt) {
         uglify: {
             modx: {
                 files: {
-                    'assets/templates/js/main.min.js': ['assets/templates/js/main.js']
+                    'assets/templates/js/main.js': ['assets/templates/js/main.js']
                 }
             },
 
-            minishop : {
-                files : {
-                    'assets/components/minishop2/js/web/default.js' : 'assets/components/minishop2/js/web/default.js'
+            minishop: {
+                files: {
+                    'assets/components/minishop2/js/web/default.js': 'assets/components/minishop2/js/web/default.js'
                 }
             }
 
@@ -143,7 +143,8 @@ module.exports = function (grunt) {
 
         autoprefixer: {
             options: {
-                browsers: ['last 3 versions', 'ie 10']
+                browsers: ['last 3 versions', 'ie 10'],
+                map: true
             },
             dist: {
                 files: {
@@ -183,7 +184,7 @@ module.exports = function (grunt) {
             //        }
             //    }
             //},
-            "grunt-js" : {
+            "grunt-js": {
                 files: ['gruntfile.js'],
                 tasks: ['watch'],
                 options: {
